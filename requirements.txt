@@ -1,0 +1,12 @@
+pillow==8.2.0
+opencv-contrib-python==4.2.0.32
+scikit-learn==0.21.0
+tabulate
+tqdm
+matplotlib
+numpy
+pyyaml
+rich
+termcolor
+fire
+onnx==1.9.0
