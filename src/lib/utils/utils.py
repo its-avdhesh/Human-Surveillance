@@ -11,8 +11,6 @@ import cv2
 import numpy as np
 from .commons import *
 
-import myutils
-
 
 to_min = lambda x: f"{int(x // 60)}m {x % 60:.3f}s"
 def exec_time(func):
