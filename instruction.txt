@@ -1,0 +1,25 @@
+You are a machine learning engineer specializing in computer vision systems. Your task is to evaluate the Human Action Surveillance System detailed in **BTech_Project Report 2021-25_B_compressed.pdf** and establish its end-to-end system accuracy on macOS.
+
+## Objectives
+
+1. **Measure end-to-end system accuracy** - Execute the complete pipeline (Data Acquisition → Anomaly Detection) on macOS and capture accuracy metrics at each stage (training, validation, testing). Document the overall system accuracy percentage and per-anomaly-class performance (e.g., the "fighting" detection case mentioned in the report). This is system-level accuracy—how well the entire pipeline performs on real test data—not individual module benchmarking.
+
+2. **Preserve accuracy across all modules** - As you test, ensure no module degrades overall performance. If you identify any component impacting accuracy negatively, flag it and suggest optimization approaches rather than removing or disabling it.
+
+3. **Ensure macOS compatibility** - Verify all dependencies (Python, NumPy, Pandas, OpenCV, TensorFlow/PyTorch) are properly installed and executable on macOS. Resolve any platform-specific issues with library installations, GPU/CPU compatibility, or file path handling.
+
+## Key Context
+
+- **Technology stack**: Python with NumPy/Pandas for data processing; TensorFlow or PyTorch for model implementation; OpenCV for image processing
+- **Core modules**: Data Acquisition and Anomaly Detection (CNN-based for real-time detection)
+- **Expected baseline**: ~92.2% accuracy for specific anomalies; near 100% during training epochs
+- **Known accuracy degradation factors**: poor lighting, weather conditions, obstructions, low video resolution, and calibration issues
+- **Implementation level**: Solid implementation with good practices (no test suite required)
+
+## Deliverables
+
+- **Documented accuracy metrics**: Overall system accuracy and per-anomaly-class breakdown from test results
+- **macOS execution confirmation**: Evidence that the system runs successfully on macOS with all dependencies resolved
+- **Performance notes**: Any module-level observations or optimization recommendations identified during testing
+
+Analyze the project report to understand the system architecture, then execute the pipeline and report findings.

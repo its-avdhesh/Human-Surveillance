@@ -1,6 +1,6 @@
-pillow==8.2.0
-opencv-contrib-python==4.2.0.32
-scikit-learn==0.21.0
+pillow>=8.2.0
+opencv-contrib-python>=4.5.5
+scikit-learn>=0.24
 tabulate
 tqdm
 matplotlib
@@ -9,4 +9,9 @@ pyyaml
 rich
 termcolor
 fire
-onnx==1.9.0
+onnx>=1.9.0
+mediapipe
+# Deep learning runtime (install the appropriate build for your platform)
+# See README for recommendation; do not force-install here as CUDA/CPU builds vary
+torch
+torchvision

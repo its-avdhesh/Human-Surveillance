@@ -18,6 +18,9 @@ def get_args():
     ap.add_argument('--task', choices=['pose', 'track', 'action'], default='action',
                     help='inference task for pose estimation, action recognition or tracking')
 
+    ap.add_argument('--pose_backend', choices=['trtpose', 'mediapipe'], default=None,
+                    help='override pose backend from config')
+
     ap.add_argument("--config", type=str,
                     default="../configs/infer_trtpose_deepsort_dnn.yaml",
                     help='all inference configs for full action recognition pipeline.')
@@ -48,7 +51,12 @@ def main():
      # Configs
     args = get_args()
     cfg = Config(args.config)
-    pose_kwargs = cfg.POSE
+    # ensure we work with a plain dict so we can override the backend
+    pose_kwargs = dict(cfg.POSE)
+    if args.pose_backend:
+        pose_kwargs['name'] = args.pose_backend
+        # keep cfg in sync for suffix generation and visibility
+        cfg.POSE.name = args.pose_backend
     clf_kwargs = cfg.CLASSIFIER
     tracker_kwargs = cfg.TRACKER
 
@@ -56,7 +64,7 @@ def main():
     source = args.source if args.source else 0
     video = Video(source)
 
-    ## Initiate trtpose, deepsort and action classifier
+    ## Initiate pose backend, tracker and action classifier
     pose_estimator = get_pose_estimator(**pose_kwargs)
     if args.task != 'pose':
         tracker = get_tracker(**tracker_kwargs)
